@@ -1,110 +1,235 @@
-/* Importação de fonte moderna e elegante */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+/* Fontes: Montserrat para o corpo e Playfair Display para os títulos */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
 
-/* Variáveis de Cores (Tema Claro - Tons Femininos Modernos) */
 :root {
-    --bg-body: #fff5f8;
+    --bg-body: #fdf2f8;
     --bg-card: #ffffff;
-    --bg-header: linear-gradient(135deg, #ec4899, #8b5cf6);
-    --bg-menu: #2d1b2d;
-    --text-main: #374151;
-    --text-muted: #6b7280;
-    --text-header: #ffffff;
-    --accent: #ec4899;
-    --accent-hover: #db2777;
-    --border-color: #fbcfe8;
-    --shadow: 0 4px 15px rgba(236, 72, 153, 0.1);
+    --primary: #ec4899;
+    --primary-hover: #db2777;
+    --dark-purple: #2e1065;
+    --text-color: #374151;
+    --text-light: #6b7280;
+    --border: #fbcfe8;
+    --shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.1), 0 8px 10px -6px rgba(236, 72, 153, 0.1);
 }
 
-/* Modo Escuro (Tons Rosa Neon & Violeta Escuro) */
 body.dark-mode {
-    --bg-body: #18111d;
-    --bg-card: #24192b;
-    --bg-header: linear-gradient(135deg, #831843, #4c1d95);
-    --bg-menu: #0f0a14;
-    --text-main: #f472b6;
-    --text-muted: #d8b4fe;
-    --text-header: #ffffff;
-    --accent: #f472b6;
-    --accent-hover: #f43f5e;
-    --border-color: #4c1d95;
-    --shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    --bg-body: #111827;
+    --bg-card: #1f2937;
+    --primary: #f472b6;
+    --primary-hover: #ec4899;
+    --dark-purple: #0f172a;
+    --text-color: #f3f4f6;
+    --text-light: #9ca3af;
+    --border: #374151;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: var(--bg-body);
-    color: var(--text-main);
-    line-height: 1.6;
+    color: var(--text-color);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Cabeçalho */
+/* Header elegante */
 .cabecalho {
-    background: var(--bg-header);
-    color: var(--text-header);
+    background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+    color: #ffffff;
     text-align: center;
-    padding: 2.5rem 1rem;
-    box-shadow: var(--shadow);
+    padding: 3rem 1rem;
+    box-shadow: 0 4px 20px rgba(236, 72, 153, 0.2);
 }
 
 .cabecalho h1 {
-    font-size: 2.3rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.5px;
 }
 
-/* Menu de Navegação Limpo */
+/* Menu minimalista */
 .menu {
-    background-color: var(--bg-menu);
+    background-color: var(--dark-purple);
+    padding: 0.8rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 2rem;
 }
 
 .menu ul {
     list-style: none;
-    display: flex;
-    align-items: center;
 }
 
 .menu a {
-    display: block;
-    color: #f3e8ff;
+    color: #ffffff;
     text-decoration: none;
-    padding: 0.8rem 1.2rem;
     font-weight: 600;
     font-size: 0.95rem;
-    transition: background 0.3s, color 0.3s;
-    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.2s;
 }
 
 .menu a:hover {
-    background-color: rgba(236, 72, 153, 0.2);
-    color: #f472b6;
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Botão Alternar Tema */
+/* Botão Tema */
 .btn-tema {
-    background-color: var(--accent);
+    background-color: rgba(255, 255, 255, 0.2);
     color: #ffffff;
-    border: none;
-    padding: 0.5rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.4rem 1rem;
     border-radius: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    transition: all 0.2s;
 }
 
 .btn-tema:hover {
+    background-color: #ffffff;
+    color: var(--dark-purple);
+}
+
+/* Container Principal */
+.container {
+    max-width: 1000px;
+    width: 90%;
+    margin: 2.5rem auto;
+    background-color: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    flex: 1;
+}
+
+.intro-text {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+}
+
+/* Grelha dos Cards (Home) */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--primary);
+}
+
+.card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    flex: 1;
+}
+
+.btn-card {
+    background-color: var(--primary);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-card:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Páginas da História */
+.imgcentro {
+    display: block;
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 2rem auto;
+    border-radius: 12px;
+    border: 3px solid var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.texto {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.btn-voltar:hover {
+    color: var(--primary-hover);
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--dark-purple);
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.85rem;
+    margin-top: auto;
+}
+
+footer strong {
+    color: var(--primary);
+}
