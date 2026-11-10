@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Grace Murray Hopper  </title>
+    <title>Grace Murray Hopper</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header class="cabecalho">
-        <h1 id="titulo">  Grace Murray Hopper </h1>
+        <h1 class="titulo">Grace Murray Hopper</h1>
     </header>
 
-         <nav class="menu">
+    <nav class="menu">
         <ul>
-            <li> <a href="index.html"> Home </a></li>
-            <li> <a href="ada.html"> Ada </a></li>
-            <li> <a href="margareth.html"> Margareth </a> </li>
-            <li> <a href="dorothy.html"> Dorothy </a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ada.html">Ada</a></li>
+            <li><a href="grace.html" class="ativo">Grace</a></li>
+            <li><a href="margareth.html">Margaret</a></li>
+            <li><a href="dorothy.html">Dorothy</a></li>
+            <li><button class="btn-tema" onclick="alternarTema()">🌙 Tema</button></li>
         </ul>
     </nav>
 
-    <img src="grace.jpeg" alt="Grace Murray Hopper" class="imgcentro">
-    <p class="texto"> Grace Murray Hopper (Nova Iorque, 1906 - 1992) foi Ph.D. em Matemática, analista de sistemas da Marinha dos Estados Unidos nas décadas de 1940 e 1950 e almirante.</p>
+    <main class="conteudo">
+        <img src="grace.jpeg" alt="Grace Murray Hopper" class="imgcentro">
 
-    <p class="texto"> Foi ela quem criou a linguagem de programação Flow-Matic (hoje extinta) que serviu como base para a criação da linguagem COBOL (Common Business Oriented Language) devido a necessidade de criar uma linguagem orientada para negócios comuns. Pois é! Essa linguagem que domina muitas áreas dos grandes bancos tem uma mulher com papel de protagonista.</p>
+        <p class="texto">Grace Murray Hopper (Nova Iorque, 1906 - 1992) foi Ph.D. em Matemática, analista de sistemas da Marinha dos Estados Unidos nas décadas de 1940 e 1950 e almirante.</p>
 
-    <p class="texto">No começo dos anos 1950 ela desenvolveu um compilador operacional, naquela época acreditava-se que computadores só podiam realizar operações aritméticas. Depois como diretora de programação automática, seu departamento divulgou algumas das primeiras linguagens de programação baseadas em compilador. Isso mesmo: considerada uma das mães dos compiladores. </p>
+        <p class="texto">Foi ela quem criou a linguagem de programação Flow-Matic (hoje extinta) que serviu como base para a criação da linguagem COBOL (Common Business Oriented Language) devido à necessidade de criar uma linguagem orientada para negócios comuns. Pois é! Essa linguagem que domina muitas áreas dos grandes bancos tem uma mulher com papel de protagonista.</p>
+
+        <p class="texto">No começo dos anos 1950 ela desenvolveu um compilador operacional, naquela época acreditava-se que computadores só podiam realizar operações aritméticas. Depois como diretora de programação automática, seu departamento divulgou algumas das primeiras linguagens de programação baseadas em compilador. Isso mesmo: considerada uma das mães dos compiladores.</p>
+    </main>
+
+    <footer>
+        <p><strong>Desenvolvido por:</strong> Bianca Tainá Lino Balduino</p>
+        <p><strong>Contato:</strong> (43) 9999-9999 | biancatainá@gmail.com</p>
+        <p><em>Manoel Ribas - Paraná</em></p>
+    </footer>
+
+    <button id="btnTopo" title="Voltar ao topo">↑</button>
+
+    <script src="script.js"></script>
 </body>
 </html>
