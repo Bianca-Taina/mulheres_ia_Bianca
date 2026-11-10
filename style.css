@@ -1,237 +1,182 @@
-/* ==========================================================================
-   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (PALETA SOFISTICADA)
-   ========================================================================== */
-:root {
-  --cor-primaria: #0f172a;       /* Azul Marinho Quase Preto */
-  --cor-secundaria: #1e293b;     /* Azul Escuro Elegante */
-  --cor-destaque: #d97706;       /* Dourado / Âmbar */
-  --cor-fundo: #f8fafc;          /* Off-White Clean */
-  --cor-card: #ffffff;           /* Branco */
-  --cor-texto: #334155;          /* Grafite Suave */
-  --cor-texto-suave: #64748b;    /* Cinza Azulado */
-  --cor-borda: #e2e8f0;          /* Borda Discreta */
-  --fonte-principal: 'Inter', system-ui, -apple-system, sans-serif;
-  --sombra-card: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
-  --borda-raio: 16px;
-}
+/* Importação de fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-body.dark-mode {
-  --cor-primaria: #020617;
-  --cor-secundaria: #0f172a;
-  --cor-destaque: #fbbf24;
-  --cor-fundo: #090d16;
-  --cor-card: #111827;
-  --cor-texto: #cbd5e1;
-  --cor-texto-suave: #94a3b8;
-  --cor-borda: #1e293b;
-  --sombra-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: var(--fonte-principal);
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto);
-  line-height: 1.7;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f6f9;
+    color: #333333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* ==========================================================================
-   2. CABEÇALHO E NAVEGAÇÃO
-   ========================================================================== */
+/* Cabeçalho */
 .cabecalho {
-  background-color: var(--cor-primaria);
-  color: #ffffff;
-  padding: 40px 20px;
-  text-align: center;
-  border-bottom: 3px solid var(--cor-destaque);
+    background: linear-gradient(135deg, #2b1055, #7597de);
+    color: #ffffff;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.titulo {
-  font-size: 2.2rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
+.cabecalho h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
+/* Menu de Navegação */
 .menu {
-  background-color: var(--cor-secundaria);
-  padding: 14px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background-color: #1c1b29;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .menu ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0 15px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.menu li {
+    margin: 0;
 }
 
 .menu a {
-  color: #94a3b8;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  padding: 8px 18px;
-  border-radius: 30px;
-  transition: all 0.25s ease;
+    display: block;
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.3s, color 0.3s;
 }
 
-.menu a:hover,
-.menu a.ativo {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.1);
+.menu a:hover {
+    background-color: #3b3a53;
+    color: #64ffda;
 }
 
-.menu a.ativo {
-  box-shadow: inset 0 0 0 1px var(--cor-destaque);
-}
-
-.btn-tema {
-  background: transparent;
-  border: 1px solid var(--cor-destaque);
-  color: var(--cor-destaque);
-  padding: 7px 16px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.25s ease;
-}
-
-.btn-tema:hover {
-  background-color: var(--cor-destaque);
-  color: #ffffff;
-}
-
-/* ==========================================================================
-   3. CONTEÚDO PRINCIPAL
-   ========================================================================== */
-.conteudo {
-  max-width: 850px;
-  margin: 50px auto;
-  padding: 40px;
-  background-color: var(--cor-card);
-  border-radius: var(--borda-raio);
-  box-shadow: var(--sombra-card);
-  border: 1px solid var(--cor-borda);
-  flex: 1;
-  width: calc(100% - 40px);
-  transition: all 0.3s ease;
-}
-
-.subtitulo-home {
-  text-align: center;
-  margin-bottom: 24px;
-  color: var(--cor-primaria);
-  font-size: 1.8rem;
-  font-weight: 700;
-}
-
-body.dark-mode .subtitulo-home {
-  color: #ffffff;
-}
-
-.grid-mulheres {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-  margin-top: 36px;
-}
-
-.card-link {
-  background-color: var(--cor-fundo);
-  padding: 30px 20px;
-  border-radius: var(--borda-raio);
-  text-align: center;
-  text-decoration: none;
-  color: var(--cor-texto);
-  font-weight: 700;
-  font-size: 1.15rem;
-  border: 1px solid var(--cor-borda);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-link:hover {
-  border-color: var(--cor-destaque);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
-  color: var(--cor-destaque);
+/* Conteúdo Principal */
+.container {
+    max-width: 900px;
+    width: 90%;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    flex: 1;
 }
 
 .imgcentro {
-  max-width: 340px;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto 32px auto;
-  border-radius: var(--borda-raio);
-  box-shadow: var(--sombra-card);
-  border: 1px solid var(--cor-borda);
+    display: block;
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
 }
 
 .texto {
-  font-size: 1.08rem;
-  margin-bottom: 22px;
-  text-align: justify;
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    color: #4a4a4a;
+    text-align: justify;
 }
 
-.texto:last-child {
-  margin-bottom: 0;
+/* Grid da Página Inicial (Index) */
+.intro-text {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
 }
 
-/* ==========================================================================
-   4. RODAPÉ E BOTÃO FLUTUANTE
-   ========================================================================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.card {
+    background-color: #f8f9fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #7597de;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    color: #2b1055;
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.btn-card {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #2b1055;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-card:hover {
+    background-color: #4a2885;
+}
+
+/* Rodapé */
 footer {
-  background-color: var(--cor-card);
-  border-top: 1px solid var(--cor-borda);
-  text-align: center;
-  padding: 30px 20px;
-  font-size: 0.95rem;
-  color: var(--cor-texto-suave);
-  margin-top: 50px;
+    background-color: #1c1b29;
+    color: #a0a0a0;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+    margin-top: auto;
 }
 
-footer p {
-  margin: 6px 0;
+footer strong {
+    color: #ffffff;
 }
 
-#btnTopo {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  display: none;
-  background-color: var(--cor-destaque);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  font-size: 20px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+footer a {
+    color: #7597de;
+    text-decoration: none;
 }
-
-#btnTopo:hover {
-  transform: scale(1.1);
-}
-
-/* ==========================================================================
-   5. RESPONSIVIDADE
-   ========================================================================== */
-@media (max-width: 768px) {
-  .conteudo {
-    margin: 24px auto;
-    padding: 24px;

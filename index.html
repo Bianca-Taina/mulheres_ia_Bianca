@@ -3,464 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pioneiras da Tecnologia</title>
-    
-    <style>
-        /* ==========================================================================
-           1. VARIÁVEIS E TEMAS (DESIGN SOFISTICADO)
-           ========================================================================== */
-        :root {
-            --bg-principal: #0d1117;
-            --bg-card: #161b22;
-            --bg-card-hover: #21262d;
-            --cor-destaque: #f59e0b;
-            --cor-destaque-hover: #d97706;
-            --texto-principal: #f0f6fc;
-            --texto-secundario: #8b949e;
-            --borda: #30363d;
-            --fonte: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --sombra: 0 10px 30px rgba(0, 0, 0, 0.4);
-            --raio: 16px;
-        }
-
-        body.light-mode {
-            --bg-principal: #f8fafc;
-            --bg-card: #ffffff;
-            --bg-card-hover: #f1f5f9;
-            --cor-destaque: #d97706;
-            --cor-destaque-hover: #b45309;
-            --texto-principal: #0f172a;
-            --texto-secundario: #475569;
-            --borda: #e2e8f0;
-            --sombra: 0 10px 25px rgba(15, 23, 42, 0.08);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--fonte);
-            background-color: var(--bg-principal);
-            color: var(--texto-principal);
-            line-height: 1.7;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        /* ==========================================================================
-           2. CABEÇALHO E NAVEGAÇÃO
-           ========================================================================== */
-        header {
-            padding: 50px 20px 30px;
-            text-align: center;
-        }
-
-        .tag-subtitulo {
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            color: var(--cor-destaque);
-            font-weight: 700;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .titulo-principal {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        nav {
-            background: var(--bg-card);
-            border-top: 1px solid var(--borda);
-            border-bottom: 1px solid var(--borda);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-
-        .container-menu {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 20px;
-        }
-
-        .menu-links {
-            display: flex;
-            gap: 8px;
-            list-style: none;
-            overflow-x: auto;
-        }
-
-        .menu-btn {
-            background: transparent;
-            border: none;
-            color: var(--texto-secundario);
-            font-size: 0.95rem;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            white-space: nowrap;
-        }
-
-        .menu-btn:hover, .menu-btn.ativo {
-            color: var(--texto-principal);
-            background-color: var(--bg-card-hover);
-        }
-
-        .menu-btn.ativo {
-            color: var(--cor-destaque);
-        }
-
-        .btn-tema {
-            background: transparent;
-            border: 1px solid var(--borda);
-            color: var(--texto-principal);
-            padding: 8px 14px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.25s ease;
-        }
-
-        .btn-tema:hover {
-            border-color: var(--cor-destaque);
-            color: var(--cor-destaque);
-        }
-
-        /* ==========================================================================
-           3. CONTEÚDO E SEÇÕES DA PÁGINA (SPA)
-           ========================================================================== */
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-            flex: 1;
-            width: 100%;
-        }
-
-        .secao-pagina {
-            display: none;
-            animation: surgir 0.4s ease;
-        }
-
-        .secao-pagina.ativa {
-            display: block;
-        }
-
-        @keyframes surgir {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Grid da Home */
-        .grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-            margin-top: 30px;
-        }
-
-        .card-pioneira {
-            background-color: var(--bg-card);
-            border: 1px solid var(--borda);
-            border-radius: var(--raio);
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .card-pioneira:hover {
-            transform: translateY(-6px);
-            border-color: var(--cor-destaque);
-            box-shadow: var(--sombra);
-        }
-
-        .card-img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-        }
-
-        .card-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .card-nome {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .card-sub {
-            font-size: 0.85rem;
-            color: var(--texto-secundario);
-        }
-
-        /* Perfil Individual */
-        .perfil-container {
-            background-color: var(--bg-card);
-            border: 1px solid var(--borda);
-            border-radius: var(--raio);
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 40px;
-            box-shadow: var(--sombra);
-        }
-
-        .perfil-img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            border-radius: var(--raio);
-            border: 1px solid var(--borda);
-        }
-
-        .perfil-titulo {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--cor-destaque);
-            margin-bottom: 8px;
-        }
-
-        .perfil-subtitulo {
-            font-size: 1rem;
-            color: var(--texto-secundario);
-            margin-bottom: 24px;
-            font-weight: 600;
-        }
-
-        .perfil-bio p {
-            margin-bottom: 16px;
-            color: var(--texto-principal);
-            font-size: 1.05rem;
-        }
-
-        /* ==========================================================================
-           4. RODAPÉ & VOLTAR AO TOPO
-           ========================================================================== */
-        footer {
-            background-color: var(--bg-card);
-            border-top: 1px solid var(--borda);
-            padding: 30px 20px;
-            text-align: center;
-            color: var(--texto-secundario);
-            font-size: 0.9rem;
-            margin-top: 60px;
-        }
-
-        #btnTopo {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: none;
-            background-color: var(--cor-destaque);
-            color: #ffffff;
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease;
-        }
-
-        #btnTopo:hover {
-            transform: scale(1.1);
-        }
-
-        /* Responsividade */
-        @media (max-width: 800px) {
-            .perfil-container {
-                grid-template-columns: 1fr;
-                padding: 24px;
-            }
-
-            .perfil-img {
-                height: 300px;
-            }
-
-            .titulo-principal {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    <title>Mulheres na Tecnologia</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
-    <header>
-        <span class="tag-subtitulo">Galeria de Notáveis</span>
-        <h1 class="titulo-principal">Mulheres na Tecnologia</h1>
+    <header class="cabecalho">
+        <h1>Mulheres da Tecnologia</h1>
     </header>
-
-    <nav>
-        <div class="container-menu">
-            <ul class="menu-links">
-                <li><button class="menu-btn ativo" onclick="mostrarPagina('home')">Início</button></li>
-                <li><button class="menu-btn" onclick="mostrarPagina('ada')">Ada Lovelace</button></li>
-                <li><button class="menu-btn" onclick="mostrarPagina('grace')">Grace Hopper</button></li>
-                <li><button class="menu-btn" onclick="mostrarPagina('margareth')">Margaret Hamilton</button></li>
-                <li><button class="menu-btn" onclick="mostrarPagina('dorothy')">Dorothy Vaughan</button></li>
-            </ul>
-            <button class="btn-tema" onclick="alternarTema()">🌗 Alternar Tema</button>
-        </div>
+    
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ada.html">Ada</a></li>
+            <li><a href="grace.html">Grace</a></li>
+            <li><a href="margareth.html">Margaret</a></li>
+            <li><a href="dorothy.html">Dorothy</a></li>
+        </ul>
     </nav>
 
-    <main>
-        <!-- Home / Galeria -->
-        <section id="home" class="secao-pagina ativa">
-            <div class="grid-cards">
-                <div class="card-pioneira" onclick="mostrarPagina('ada')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Ada_Lovelace_portrait.jpg" alt="Ada Lovelace" class="card-img">
-                    <div class="card-info">
-                        <h3 class="card-nome">Ada Lovelace</h3>
-                        <span class="card-sub">Primeira Programadora da História</span>
-                    </div>
-                </div>
-
-                <div class="card-pioneira" onclick="mostrarPagina('grace')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg" alt="Grace Hopper" class="card-img">
-                    <div class="card-info">
-                        <h3 class="card-nome">Grace Hopper</h3>
-                        <span class="card-sub">Pioneira dos Compiladores & COBOL</span>
-                    </div>
-                </div>
-
-                <div class="card-pioneira" onclick="mostrarPagina('margareth')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Margaret_Hamilton_1995.jpg" alt="Margaret Hamilton" class="card-img">
-                    <div class="card-info">
-                        <h3 class="card-nome">Margaret Hamilton</h3>
-                        <span class="card-sub">Engenharia de Software (Apollo 11)</span>
-                    </div>
-                </div>
-
-                <div class="card-pioneira" onclick="mostrarPagina('dorothy')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Dorothy_Vaughan.jpg" alt="Dorothy Vaughan" class="card-img">
-                    <div class="card-info">
-                        <h3 class="card-nome">Dorothy Vaughan</h3>
-                        <span class="card-sub">Líder de Computação da NASA & FORTRAN</span>
-                    </div>
-                </div>
+    <main class="container">
+        <p class="intro-text">Conheça as mulheres incríveis que revolucionaram a história da computação e abriram caminho para a tecnologia moderna.</p>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <img src="ada.jpeg" alt="Ada Lovelace">
+                <h2>Ada Lovelace</h2>
+                <p>Matemática e primeira programadora da história ao criar o primeiro algoritmo.</p>
+                <a href="ada.html" class="btn-card">Ler história</a>
             </div>
-        </section>
 
-        <!-- Ada Lovelace -->
-        <section id="ada" class="secao-pagina">
-            <div class="perfil-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Ada_Lovelace_portrait.jpg" alt="Ada Lovelace" class="perfil-img">
-                <div class="perfil-bio">
-                    <h2 class="perfil-titulo">Ada Augusta King</h2>
-                    <h3 class="perfil-subtitulo">Condessa de Lovelace (1815 – 1852)</h3>
-                    <p>Matemática e escritora inglesa, Ada Lovelace foi a primeira a perceber que as máquinas mecânicas de cálculo tinham utilidade para além de simples computações matemáticas.</p>
-                    <p>Ao trabalhar com a Máquina Analítica de Charles Babbage, escreveu o primeiro algoritmo destinado a ser processado por uma máquina, feito pelo qual é reconhecida mundialmente como a primeira programadora da história da computação.</p>
-                </div>
+            <div class="card">
+                <img src="grace.jpeg" alt="Grace Hopper">
+                <h2>Grace Hopper</h2>
+                <p>Criadora do primeiro compilador e pioneira na linguagem COBOL.</p>
+                <a href="grace.html" class="btn-card">Ler história</a>
             </div>
-        </section>
 
-        <!-- Grace Hopper -->
-        <section id="grace" class="secao-pagina">
-            <div class="perfil-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg" alt="Grace Hopper" class="perfil-img">
-                <div class="perfil-bio">
-                    <h2 class="perfil-titulo">Grace Murray Hopper</h2>
-                    <h3 class="perfil-subtitulo">Almirante e Cientista da Computação (1906 – 1992)</h3>
-                    <p>Ph.D. em matemática e contra-almirante da Marinha dos EUA, Grace Hopper foi uma das mentes por trás da criação do primeiro compilador de computadores, o FLOW-MATIC.</p>
-                    <p>Seu trabalho serviu de fundação para o desenvolvimento da linguagem COBOL, amplamente utilizada no setor financeiro global. Ela também popularizou o termo "bug" para descrever falhas em sistemas.</p>
-                </div>
+            <div class="card">
+                <img src="marga.jpg" alt="Margaret Hamilton">
+                <h2>Margaret Hamilton</h2>
+                <p>Engenheira da NASA que escreveu o código que levou o homem à Lua.</p>
+                <a href="margareth.html" class="btn-card">Ler história</a>
             </div>
-        </section>
 
-        <!-- Margaret Hamilton -->
-        <section id="margareth" class="secao-pagina">
-            <div class="perfil-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Margaret_Hamilton_1995.jpg" alt="Margaret Hamilton" class="perfil-img">
-                <div class="perfil-bio">
-                    <h2 class="perfil-titulo">Margaret Heafield Hamilton</h2>
-                    <h3 class="perfil-subtitulo">Engenheira de Software (1936 – Presente)</h3>
-                    <p>Margaret Hamilton liderou a Divisão de Engenharia de Software do Laboratório de Instrumentação do MIT, responsável por criar o sistema embarcado do programa espacial Apollo da NASA.</p>
-                    <p>Seu software garantiu que a missão Apollo 11 realizasse o pouso seguro na Lua em 1969. É a ela que se atribui a criação do termo "Engenharia de Software" como disciplina científica.</p>
-                </div>
+            <div class="card">
+                <img src="doro.jpeg" alt="Dorothy Vaughan">
+                <h2>Dorothy Vaughan</h2>
+                <p>Primeira supervisora negra da NASA e especialista em FORTRAN.</p>
+                <a href="dorothy.html" class="btn-card">Ler história</a>
             </div>
-        </section>
-
-        <!-- Dorothy Vaughan -->
-        <section id="dorothy" class="secao-pagina">
-            <div class="perfil-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Dorothy_Vaughan.jpg" alt="Dorothy Vaughan" class="perfil-img">
-                <div class="perfil-bio">
-                    <h2 class="perfil-titulo">Dorothy Johnson Vaughan</h2>
-                    <h3 class="perfil-subtitulo">Matemática e Programadora da NASA (1910 – 2008)</h3>
-                    <p>Dorothy Vaughan foi matemática e a primeira supervisora negra da história da NACA/NASA, liderando a unidade *West Area Computing* composta por mulheres matemáticas negras.</p>
-                    <p>Antecipando a chegada dos computadores eletrônicos, aprendeu de forma autodidata a linguagem FORTRAN e treinou sua equipe, liderando a migração digital da agência espacial. Sua jornada inspirou o filme *Estrelas Além do Tempo*.</p>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <footer>
-        <p>Desenvolvido por <strong>Bianca Tainá Lino Balduino</strong></p>
-        <p>Manoel Ribas — Paraná</p>
+        <p><strong>Desenvolvido por:</strong> <em>Bianca Tainá Lino Balduino</em></p>
+        <p><b>Contato:</b> (43) 9999-9999 | biancatainá@gmail.com</p>
+        <p><i>Manoel Ribas - Paraná</i></p>
     </footer>
 
-    <button id="btnTopo" onclick="voltarAoTopo()" title="Voltar ao topo">↑</button>
-
-    <script>
-        // Navegação entre páginas sem recarregar (SPA)
-        function mostrarPagina(id) {
-            const secoes = document.querySelectorAll('.secao-pagina');
-            secoes.forEach(sec => sec.classList.remove('ativa'));
-
-            const secaoAlvo = document.getElementById(id);
-            if (secaoAlvo) {
-                secaoAlvo.classList.add('ativa');
-            }
-
-            const botoes = document.querySelectorAll('.menu-btn');
-            botoes.forEach(btn => {
-                btn.classList.remove('ativo');
-                if (btn.getAttribute('onclick').includes(id)) {
-                    btn.classList.add('ativo');
-                }
-            });
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Alternância do Tema Claro/Escuro
-        function alternarTema() {
-            document.body.classList.toggle('light-mode');
-        }
-
-        // Botão flutuante Voltar ao Topo
-        const btnTopo = document.getElementById("btnTopo");
-        window.onscroll = function () {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                btnTopo.style.display = "block";
-            } else {
-                btnTopo.style.display = "none";
-            }
-        };
-
-        function voltarAoTopo() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
 </body>
 </html>
