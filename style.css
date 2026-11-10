@@ -1,35 +1,37 @@
 /* ==========================================================================
-   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (MODO CLARO E ESCURO)
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS (PALETA SOFISTICADA)
    ========================================================================== */
 :root {
-  --cor-primaria: #4a154b;
-  --cor-secundaria: #611f69;
-  --cor-fundo: #f4f5f7;
-  --cor-card: #ffffff;
-  --cor-texto: #2c2c2c;
-  --cor-texto-suave: #666666;
-  --cor-borda: #e0e0e0;
-  --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --borda-raio: 12px;
+  --cor-primaria: #0f172a;       /* Azul Marinho Quase Preto */
+  --cor-secundaria: #1e293b;     /* Azul Escuro Elegante */
+  --cor-destaque: #d97706;       /* Dourado / Âmbar */
+  --cor-fundo: #f8fafc;          /* Off-White Clean */
+  --cor-card: #ffffff;           /* Branco */
+  --cor-texto: #334155;          /* Grafite Suave */
+  --cor-texto-suave: #64748b;    /* Cinza Azulado */
+  --cor-borda: #e2e8f0;          /* Borda Discreta */
+  --fonte-principal: 'Inter', system-ui, -apple-system, sans-serif;
+  --sombra-card: 0 10px 25px -5px rgba(15, 23, 42, 0.05);
+  --borda-raio: 16px;
 }
 
 body.dark-mode {
-  --cor-primaria: #bb86fc;
-  --cor-secundaria: #3700b3;
-  --cor-fundo: #121212;
-  --cor-card: #1e1e1e;
-  --cor-texto: #e0e0e0;
-  --cor-texto-suave: #a0a0a0;
-  --cor-borda: #333333;
-  --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --cor-primaria: #020617;
+  --cor-secundaria: #0f172a;
+  --cor-destaque: #fbbf24;
+  --cor-fundo: #090d16;
+  --cor-card: #111827;
+  --cor-texto: #cbd5e1;
+  --cor-texto-suave: #94a3b8;
+  --cor-borda: #1e293b;
+  --sombra-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
 }
 
 body {
   font-family: var(--fonte-principal);
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
-  line-height: 1.6;
+  line-height: 1.7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -42,130 +44,194 @@ body {
 .cabecalho {
   background-color: var(--cor-primaria);
   color: #ffffff;
-  padding: 30px 20px;
+  padding: 40px 20px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease;
-}
-
-body.dark-mode .cabecalho {
-  color: #121212;
+  border-bottom: 3px solid var(--cor-destaque);
 }
 
 .titulo {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .menu {
   background-color: var(--cor-secundaria);
-  padding: 12px 0;
+  padding: 14px 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .menu ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   flex-wrap: wrap;
   list-style: none;
-  padding: 0 10px;
+  padding: 0 15px;
 }
 
 .menu a {
-  color: #ffffff;
+  color: #94a3b8;
   text-decoration: none;
   font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  padding: 8px 18px;
+  border-radius: 30px;
+  transition: all 0.25s ease;
 }
 
 .menu a:hover,
 .menu a.ativo {
-  background-color: #ffffff;
-  color: var(--cor-secundaria);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu a.ativo {
+  box-shadow: inset 0 0 0 1px var(--cor-destaque);
 }
 
 .btn-tema {
   background: transparent;
-  border: 2px solid #ffffff;
-  color: #ffffff;
-  padding: 6px 14px;
-  border-radius: 20px;
+  border: 1px solid var(--cor-destaque);
+  color: var(--cor-destaque);
+  padding: 7px 16px;
+  border-radius: 30px;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
 }
 
 .btn-tema:hover {
-  background-color: #ffffff;
-  color: var(--cor-secundaria);
+  background-color: var(--cor-destaque);
+  color: #ffffff;
 }
 
 /* ==========================================================================
-   3. CONTEÚDO PRINCIPAL (CARD & TEXTOS)
+   3. CONTEÚDO PRINCIPAL
    ========================================================================== */
 .conteudo {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 32px;
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 40px;
   background-color: var(--cor-card);
   border-radius: var(--borda-raio);
-  box-shadow: var(--sombra-suave);
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--cor-borda);
   flex: 1;
   width: calc(100% - 40px);
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.caixa-busca {
-  width: 100%;
-  padding: 12px 16px;
-  margin: 20px 0;
-  border: 2px solid var(--cor-borda);
-  border-radius: var(--borda-raio);
-  background-color: var(--cor-fundo);
-  color: var(--cor-texto);
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s ease;
+.subtitulo-home {
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--cor-primaria);
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
-.caixa-busca:focus {
-  border-color: var(--cor-primaria);
+body.dark-mode .subtitulo-home {
+  color: #ffffff;
 }
 
 .grid-mulheres {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
 }
 
 .card-link {
   background-color: var(--cor-fundo);
-  padding: 24px;
+  padding: 30px 20px;
   border-radius: var(--borda-raio);
   text-align: center;
   text-decoration: none;
-  color: var(--cor-primaria);
+  color: var(--cor-texto);
   font-weight: 700;
-  font-size: 1.2rem;
-  border: 2px solid transparent;
+  font-size: 1.15rem;
+  border: 1px solid var(--cor-borda);
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-link:hover {
-  border-color: var(--cor-secundaria);
-  transform: translateY(-4px);
-  box-shadow: var(--sombra-suave);
+  border-color: var(--cor-destaque);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1);
+  color: var(--cor-destaque);
 }
 
 .imgcentro {
-  max-width: 320px;
+  max-width: 340px;
   width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 32px auto;
+  border-radius: var(--borda-raio);
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--cor-borda);
+}
+
+.texto {
+  font-size: 1.08rem;
+  margin-bottom: 22px;
+  text-align: justify;
+}
+
+.texto:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   4. RODAPÉ E BOTÃO FLUTUANTE
+   ========================================================================== */
+footer {
+  background-color: var(--cor-card);
+  border-top: 1px solid var(--cor-borda);
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.95rem;
+  color: var(--cor-texto-suave);
+  margin-top: 50px;
+}
+
+footer p {
+  margin: 6px 0;
+}
+
+#btnTopo {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: none;
+  background-color: var(--cor-destaque);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#btnTopo:hover {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   5. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .conteudo {
+    margin: 24px auto;
+    padding: 24px;
