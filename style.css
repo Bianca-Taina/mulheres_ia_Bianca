@@ -1,4 +1,4 @@
-/* Importação de fontes modernas e elegantes do Google Fonts */
+/* Importação de fonte moderna e elegante */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 /* Variáveis de Cores (Tema Claro - Tons Femininos Modernos) */
@@ -63,31 +63,30 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Menu de Navegação */
+/* Menu de Navegação Limpo */
 .menu {
     background-color: var(--bg-menu);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    padding: 0 1rem;
+    padding: 0.5rem 2rem;
 }
 
 .menu ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
 }
 
 .menu a {
     display: block;
     color: #f3e8ff;
     text-decoration: none;
-    padding: 1rem 1.2rem;
+    padding: 0.8rem 1.2rem;
     font-weight: 600;
     font-size: 0.95rem;
     transition: background 0.3s, color 0.3s;
+    border-radius: 8px;
 }
 
 .menu a:hover {
@@ -105,124 +104,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     cursor: pointer;
-    margin: 0.5rem 1rem;
     transition: background 0.3s, transform 0.2s;
 }
 
 .btn-tema:hover {
-    background-color: var(--accent-hover);
-    transform: scale(1.05);
-}
-
-/* Conteúdo Principal */
-.container {
-    max-width: 900px;
-    width: 90%;
-    margin: 2rem auto;
-    background-color: var(--bg-card);
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    flex: 1;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.imgcentro {
-    display: block;
-    max-width: 280px;
-    width: 100%;
-    height: auto;
-    margin: 0 auto 1.5rem auto;
-    border-radius: 14px;
-    box-shadow: var(--shadow);
-    object-fit: cover;
-    border: 3px solid var(--border-color);
-}
-
-.texto {
-    font-size: 1.05rem;
-    margin-bottom: 1.2rem;
-    color: var(--text-main);
-    text-align: justify;
-}
-
-/* Grid da Página Inicial (Index) */
-.intro-text {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 14px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
-}
-
-.card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    border: 3px solid var(--accent);
-}
-
-.card h2 {
-    font-size: 1.2rem;
-    color: var(--text-main);
-    margin-bottom: 0.5rem;
-}
-
-.card p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-}
-
-.btn-card {
-    display: inline-block;
-    padding: 0.5rem 1.2rem;
-    background-color: var(--accent);
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: background 0.3s;
-}
-
-.btn-card:hover {
-    background-color: var(--accent-hover);
-}
-
-/* Rodapé */
-footer {
-    background-color: var(--bg-menu);
-    color: #d8b4fe;
-    text-align: center;
-    padding: 1.5rem 1rem;
-    font-size: 0.9rem;
-    margin-top: auto;
-}
-
-footer strong {
-    color: #ffffff;
-}
